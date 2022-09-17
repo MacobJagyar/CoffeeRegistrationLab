@@ -31,19 +31,16 @@ namespace CoffeeRegistrationLab.Controllers
             return View();
         }
 
-        public IActionResult SubmitWelcome()
+        public IActionResult SubmitWelcome(User user)
         {
-            ViewBag.Username = Uname;
-            return View();
-            
+            return View(user);
         }
 
         public IActionResult AddUserToDb(User user, string FirstName)
         {
             context.Users.Add(user);
             context.SaveChanges();
-            Uname = FirstName;
-            return RedirectToAction("SubmitWelcome");
+            return RedirectToAction("SubmitWelcome", user);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

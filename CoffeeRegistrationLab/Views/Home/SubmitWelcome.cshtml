@@ -1,11 +1,14 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model User
 
 
 @{
+    ViewData["Title"] = "Welcome!";
+
     <h2>Registration successful!</h2>
-    <p>Welcome to the Coffee Club, @ViewBag.Username!<!--FIRST NAME HERE--> </p>
+    <p>Welcome to the Coffee Club, @Model.FirstName!</p>
 }
 
 
